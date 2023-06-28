@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import javax.lang.model.element.Element;
 import java.util.ArrayList;
@@ -18,6 +19,8 @@ public class Main {
     public static void main(String[] args) {
         ChromeDriver dr = new ChromeDriver();
         dr.get("https://react-shopping-cart-67954.firebaseapp.com/");
+
+        dr.manage().window().maximize();
 
         try {
             Thread.sleep(2000);
@@ -33,17 +36,18 @@ public class Main {
 
         WebElement img = dr.findElement(By.xpath("//div[@class='sc-joc36b-1 kCrsLA']/img"));
         System.out.println(img.getAttribute("src"));
-        WebElement linkuser = dr.findElement(By.xpath("// div[@class='sc-joc36b-3 jCptDE']/p/a"));
-        System.out.println(linkuser.getAttribute("href"));
 
-        WebElement h4 = dr.findElement(By.xpath("//h4[text()='Work in the Netherlands']"));
-        System.out.println(h4.getText());
+        WebElement linkUser = dr.findElement(By.xpath("//div[@class='sc-joc36b-3 jCptDE']/p/a"));
+        System.out.println(linkUser.getAttribute("href"));
 
-        WebElement b = dr.findElement(By.xpath("//b[text()='follow me on Linkedin.']"));
-        System.out.println(b.getText());
+        WebElement header = dr.findElement(By.xpath("//h4[text()='Work in the Netherlands']"));
+        System.out.println(header.getText());
 
-        WebElement tieude = dr.findElement(By.xpath("// div[@class='sc-joc36b-3 jCptDE']/p"));
-        System.out.println(tieude.getText());
+        WebElement follow = dr.findElement(By.xpath("//b[text()='follow me on Linkedin.']"));
+        System.out.println(follow.getText());
+
+        WebElement title = dr.findElement(By.xpath("// div[@class='sc-joc36b-3 jCptDE']/p"));
+        System.out.println(title.getText());
 
         List<WebElement> elements = dr.findElements(By.xpath("//span[@class='checkmark']"));
         List<String> texts = new ArrayList<>();
@@ -68,8 +72,8 @@ public class Main {
             e.printStackTrace();
         }
 
-        WebElement AddBtnCart = dr.findElement(By.xpath("//button[@class='sc-124al1g-0 jCsgpZ']"));
-        AddBtnCart.click();
+        WebElement btnAddToCart = dr.findElement(By.xpath("//button[@class='sc-124al1g-0 jCsgpZ']"));
+        btnAddToCart.click();
 
         try {
             Thread.sleep(2000);
@@ -124,8 +128,8 @@ public class Main {
         WebElement product1 = dr.findElement(By.xpath("//div[@class='sc-124al1g-2 dwOYCh']"));
         System.out.println(product1.getText());
 
-        WebElement AddToCart1 = dr.findElement(By.xpath("//div[@class='sc-124al1g-2 dwOYCh']/button"));
-        AddToCart1.click();
+        WebElement addToCart1 = dr.findElement(By.xpath("//div[@class='sc-124al1g-2 dwOYCh']/button"));
+        addToCart1.click();
 
         WebElement AddToCart2 = dr.findElement(By.xpath("//div[@class='sc-124al1g-2 ekOVCH']/button"));
         AddToCart2.click();
@@ -149,7 +153,7 @@ public class Main {
         alert.accept();
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -158,7 +162,7 @@ public class Main {
         del.click();
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -167,7 +171,7 @@ public class Main {
         del1.click();
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
