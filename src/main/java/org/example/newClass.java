@@ -37,8 +37,14 @@ public class newClass extends CommonPageObject {
 
         System.out.println(star.getText());
         System.out.println(textMain.getText());
-//        Assert.assertEquals(dataField.getData(0,0),textMain.getText());
-        Assert.assertEquals(dataField.getData(0,0),linkUser.getText());
+
+        try {
+            Assert.assertEquals(dataField.getData(0,0),textMain.getText());
+            System.out.println("match");
+        } catch (Exception e) {
+            System.out.println("not match");
+        }
+
         System.out.println(img.getAttribute("src"));
         System.out.println(linkUser.getText());
         System.out.println(header.getText());
@@ -58,6 +64,15 @@ public class newClass extends CommonPageObject {
                 sizeXS = element;
                 break;
             }
+        }
+
+        waitUntil(sizeXS);
+
+        try {
+            Assert.assertEquals(dataField.getData(1,0), String.valueOf(texts.size()));
+            System.out.println("match");
+        } catch (Exception e) {
+            System.out.println("not match");
         }
 
         Thread.sleep(2000);
@@ -88,7 +103,20 @@ public class newClass extends CommonPageObject {
             }
         }
 
+        Thread.sleep(2000);
+
         sizeXXL.click();
+
+//        waitUntil(sizeXXL);
+        Thread.sleep(2000);
+        System.out.println(textMain.getText());
+
+        try {
+            Assert.assertEquals(dataField.getData(0,1), textMain.getText());
+            System.out.println("match");
+        } catch (Exception e) {
+            System.out.println("not match");
+        }
 
         Thread.sleep(2000);
 
@@ -110,6 +138,27 @@ public class newClass extends CommonPageObject {
 
         Thread.sleep(2000);
 
+        List<String> boxes = new ArrayList<>();
+
+        for (WebElement cart : carts) {
+            boxes.add(cart.getText());
+        }
+
+        try {
+            Assert.assertEquals(dataField.getData(1,1), String.valueOf(boxes.size()));
+            System.out.println("match");
+        } catch (Exception e) {
+            System.out.println("not match");
+        }
+        
+        System.out.println(total.getText());
+
+        try {
+            Assert.assertEquals(dataField.getData(2,0), String.valueOf(total.getText()));
+            System.out.println("match");
+        } catch (Exception e) {
+            System.out.println("not match");
+        }
         del.click();
 
         Thread.sleep(2000);

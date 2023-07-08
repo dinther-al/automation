@@ -29,10 +29,12 @@ public class CommonPageObject {
     public WebElement header;
     @FindBy(how = How.XPATH, using = "//b[text()='follow me on Linkedin.']")
     public WebElement follow;
-    @FindBy(how = How.XPATH, using = "// div[@class='sc-joc36b-3 jCptDE']/p")
+    @FindBy(how = How.XPATH, using = "//div[@class='sc-joc36b-3 jCptDE']/p")
     public WebElement title;
     @FindBy(xpath = "//span[@class='checkmark']")
     public List<WebElement> elements;
+    @FindBy(xpath = "//div[@class='sc-11uohgb-0 hDmOrM']")
+    public List<WebElement> carts;
     @FindBy(how = How.XPATH, using = "//button[@class='sc-124al1g-0 jCsgpZ']")
     public WebElement btnAddToCart;
     @FindBy(how = How.XPATH, using = "//button[text()='+']")
@@ -51,6 +53,8 @@ public class CommonPageObject {
     public WebElement del;
     @FindBy(how = How.XPATH, using = "//button[@class='sc-1h98xa9-0 gFkyvN']")
     public WebElement closeMenu;
+    @FindBy(how = How.XPATH, using = "//p[@class='sc-1h98xa9-9 jzywDV']")
+    public WebElement total;
 
     public CommonPageObject(WebDriver driver) throws Exception {
         edriver = new ChromeDriver();
